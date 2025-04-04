@@ -1,0 +1,12 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="inkGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6A11CB" />
+      <stop offset="100%" stop-color="#2575FC" />
+    </linearGradient>
+  </defs>
+  <path d="M40 10 
+           C50 25, 60 40, 40 70 
+           C20 40, 30 25, 40 10 Z" 
+        fill="url(#inkGradient)" />
+</svg>
