@@ -120,7 +120,9 @@ function RegisterForm() {
         {error && <p className=" text-danger text-sm italic">{error}</p>}
 
         {/* login button */}
-        <button className="btn-primary">Register</button>
+        <button className="btn-primary" type="submit">
+          Register
+        </button>
       </form>
       <p className="text-sm lg:text-lg text-left md:text-center mt-2 md:mt-3 lg:mt-4">
         Already Have an Account ?{" "}

@@ -93,7 +93,9 @@ function Form() {
         {error && <p className="italic text-danger text-sm">{error}</p>}
 
         {/* login button */}
-        <button className="btn-primary">Login</button>
+        <button className="btn-primary" type="submit">
+          Login
+        </button>
       </form>
       <p className="text-sm lg:text-lg text-left md:text-center mt-2 md:mt-3 lg:mt-4">
         Not registered yet ?{" "}

@@ -17,6 +17,9 @@ function Home() {
     setUserInfo,
     refresh,
     showNotesInfo,
+    searchQuery,
+    setSearchQuery,
+    setRefresh,
   } = useContext(Context); //context hook
   const navigate = useNavigate();
   const { userID } = useParams();
@@ -70,9 +73,38 @@ function Home() {
     setTimeout(readNotes, 1000);
     return () => {};
   }, [refresh]);
+
+  // search note from searchbar func
+  const handleKeydown = async (e) => {
+    if (!searchQuery.trim()) return; //retruning if value is empty
+    if (e.key == "Backspace") {
+      //deleting the lue
+      const words = searchQuery.trim().split(" ").pop();
+      setSearchQuery(words.join(" "));
+    }
+    if (e.key === "Enter") {
+      // console.log(searchQuery);
+      setSearchQuery("");
+    }
+    try {
+      const response = await axios.get(
+        import.meta.env.VITE_NOTE_URL + `searchQuery/${userID}`,
+        { params: { query: searchQuery } }
+      );
+      console.log(response.data);
+      if (response.data.length === 0) {
+        setHasNotes(true);
+      }
+      setNoteData(response.data);
+    } catch (error) {
+      if (error.repsonse) {
+        console.log(error.repsonse);
+      }
+    }
+  };
   return (
     <>
-      <Navbar showProfile={showProfile} />
+      <Navbar showProfile={showProfile} handleKeydown={handleKeydown} />
       <div className="container mx-auto px-2 md:p-4">
         <div>
           {" "}

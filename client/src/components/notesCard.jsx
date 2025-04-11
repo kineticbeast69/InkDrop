@@ -35,7 +35,7 @@ function NotesCard({ note }) {
       const response = await axios.put(
         import.meta.env.VITE_NOTE_URL + `pinnedNote/${id}`
       );
-      // console.log(response.data.note);
+      console.log(response.data.note);
       setIsPinned(response.data.note); //true and false the pin form server
     } catch (error) {
       if (error.response) {

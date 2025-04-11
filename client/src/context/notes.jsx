@@ -9,7 +9,7 @@ const NoteProvider = ({ children }) => {
   const [refresh, setRefresh] = useState(false);
   const [notesID, setNotesID] = useState("");
   const [showNotesInfo, setShowNotesInfo] = useState(false);
-  const [queryNote, setQueryNote] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <Context.Provider
       value={{
@@ -25,8 +25,8 @@ const NoteProvider = ({ children }) => {
         setNotesID,
         showNotesInfo,
         setShowNotesInfo,
-        queryNote,
-        setQueryNote,
+        searchQuery,
+        setSearchQuery,
       }}
     >
       {children}
