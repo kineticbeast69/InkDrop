@@ -29,47 +29,46 @@ function Home() {
   const [loading, setLoading] = useState(false);
 
   // authenticating the user
-  useEffect(() => {
-    async function validUser() {
-      try {
-        const response = await axios.get(
-          import.meta.env.VITE_BASE_URL + "auth-user",
-          { withCredentials: true }
-        );
-        setUserInfo(response.data);
-        setShowProfile(true);
+  async function validUser() {
+    try {
+      const response = await axios.get(
+        import.meta.env.VITE_BASE_URL + "auth-user",
+        { withCredentials: true }
+      );
+      setUserInfo(response.data);
+      setShowProfile(true);
 
-        // console.log(response.data);
-      } catch (error) {
-        if (error.response) {
-          navigate("/");
-          setShowProfile(false);
-        }
+      // console.log(response.data);
+    } catch (error) {
+      if (error.response) {
+        navigate("/");
+        setShowProfile(false);
       }
     }
-    validUser();
-    return () => {};
-  }, []);
+  }
 
   // reading the notes
-  useEffect(() => {
-    setLoading(true);
-    async function readNotes() {
-      try {
-        const response = await axios.get(
-          import.meta.env.VITE_NOTE_URL + `read/${userID}`
-        );
-        // console.log(response.data.getNotes);
-        const data = response.data.getNotes;
-        data === 0 ? setHasNotes(true) : setNoteData(response.data.getNotes);
-      } catch (error) {
-        if (error.response) {
-          console.log(error.response);
-        }
-      } finally {
-        setLoading(false);
+  async function readNotes() {
+    try {
+      const response = await axios.get(
+        import.meta.env.VITE_NOTE_URL + `read/${userID}`
+      );
+      // console.log(response.data.getNotes);
+      const data = response.data.getNotes;
+      data === 0 ? setHasNotes(true) : setNoteData(response.data.getNotes);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
       }
+    } finally {
+      setLoading(false);
     }
+  }
+
+  useEffect(() => {
+    validUser();
+    setLoading(true);
+
     setTimeout(readNotes, 1000);
     return () => {};
   }, [refresh]);
@@ -94,6 +93,7 @@ function Home() {
       console.log(response.data);
       if (response.data.length === 0) {
         setHasNotes(true);
+        readNotes();
       }
       setNoteData(response.data);
     } catch (error) {
@@ -104,7 +104,11 @@ function Home() {
   };
   return (
     <>
-      <Navbar showProfile={showProfile} handleKeydown={handleKeydown} />
+      <Navbar
+        showProfile={showProfile}
+        handleKeydown={handleKeydown}
+        readNotes={readNotes}
+      />
       <div className="container mx-auto px-2 md:p-4">
         <div>
           {" "}

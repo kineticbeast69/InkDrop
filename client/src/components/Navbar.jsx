@@ -1,6 +1,6 @@
 import ProfileIcons from "../components/profileIcons";
 import SearchBar from "./searchBar";
-function Navbar({ showProfile, handleKeydown }) {
+function Navbar({ showProfile, handleKeydown, readNotes }) {
   return (
     <div className=" bg-white flex items-center justify-between px-3 md:px-4 lg:px-6 py-2 shadow-lg md:shadow-xl  gap-2 ">
       <h1 className="flex items-center justify-center text-2xl lg:text-3xl font-medium text-black py-1">
@@ -17,7 +17,7 @@ function Navbar({ showProfile, handleKeydown }) {
       {showProfile && (
         <>
           {/* search bar  */}
-          <SearchBar handleKeydown={handleKeydown} />
+          <SearchBar handleKeydown={handleKeydown} readNotes={readNotes} />
           {/* profile icons  */}
           <ProfileIcons />
         </>

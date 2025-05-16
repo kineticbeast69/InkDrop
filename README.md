@@ -38,6 +38,4 @@
 - **dotenv** – environment configuration
 - **CORS** – Cross-Origin requests
 
----
-
 

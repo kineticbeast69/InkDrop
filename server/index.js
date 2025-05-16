@@ -22,11 +22,7 @@ app.use(cookieParser()); //cookie middleware
 // database and server connection
 const startServer = async () => {
   try {
-    await mongoose.connect(DB_URL, {
-      //connecting the db
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(DB_URL);
     console.log("✅ Database connected successfully.");
 
     app.listen(PORT, "0.0.0.0", () => {

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Context } from "../context/notes";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { RxCross2 } from "react-icons/rx";
-function SearchBar({ handleKeydown }) {
+function SearchBar({ handleKeydown, readNotes }) {
   const { searchQuery, setSearchQuery } = useContext(Context);
 
   return (
@@ -20,7 +20,12 @@ function SearchBar({ handleKeydown }) {
         onKeyDown={(e) => handleKeydown(e)}
       />
       {searchQuery && (
-        <RxCross2 className="search-icons" onClick={() => setSearchQuery("")} />
+        <RxCross2
+          className="search-icons"
+          onClick={() => {
+            return setSearchQuery(""), readNotes();
+          }}
+        />
       )}
     </div>
   );
