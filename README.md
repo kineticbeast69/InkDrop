@@ -1,4 +1,4 @@
-# 🖋️ InkDrop – Modern MERN Note-Taking App
+<p align="center"><img src="client/public/inkdrop.svg" width="100" alt="Laravel Logo"> <h1>InkDrop</h1></p>
 
 **InkDrop** is a clean and intuitive note-taking application built with the **MERN stack (MongoDB, Express, React, Node.js)**. Designed with modern tools and aesthetics in mind, InkDrop allows users to securely create, manage, and organize their personal notes with ease.
 
