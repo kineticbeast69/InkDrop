@@ -2,7 +2,6 @@
 
 **InkDrop** is a clean and intuitive note-taking application built with the **MERN stack (MongoDB, Express, React, Node.js)**. Designed with modern tools and aesthetics in mind, InkDrop allows users to securely create, manage, and organize their personal notes with ease.
 
----
 
 ## 🚀 Features
 
@@ -12,10 +11,8 @@
 - 💡 Client-side validation using `react-hook-form`
 - 🎨 Modal support and smooth UI interactions
 - 🔔 Toast notifications
-- 🌈 Dark mode ready (customizable)
 - 📦 Fully responsive, clean design
 
----
 
 ## 🛠️ Tech Stack
 
@@ -38,4 +35,31 @@
 - **dotenv** – environment configuration
 - **CORS** – Cross-Origin requests
 
+### Screen Shots
 
+Register page
+![alt text](<project-Images/Signup page.png>)
+
+
+Login page
+![alt text](<project-Images/login page.png>)
+
+
+Home Page
+![alt text](<project-Images/home page.png>)
+
+
+Add note modal
+![alt text](<project-Images/add note modal.png>)
+
+
+Search Note
+![alt text](<project-Images/search note.png>)
+
+
+Updating Note
+![alt text](<project-Images/updating the note.png>)
+
+
+Logout Modal
+![alt text](<project-Images/logout modal.png>)
